@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            background: url(images/1.jpg) no-repeat center top;
+        }
+        
+        li {
+            list-style: none;
+        }
+        
+        .bg {
+            overflow: hidden;
+            margin: 100px auto;
+            background-color: #fff;
+            width: 410px;
+            padding-top: 3px;
+        }
+        
+        .bg li {
+            float: left;
+            margin: 0 1px;
+            cursor: pointer;
+        }
+        
+        .bg img {
+            width: 100px;
+        }
+    </style>
+</head>
+
+<body>
+    <ul class="bg">
+        <li><img src="images/1.jpg" alt=""></li>
+        <li><img src="images/2.jpeg" alt=""></li>
+        <li><img src="images/3.jpeg" alt=""></li>
+        <li><img src="images/4.jpeg" alt=""></li>
+    </ul>
+    <script>
+        //1.獲取元素
+        var imgs = document.querySelector('.bg').querySelectorAll('img')
+            // console.log(imgs);
+            // 2.循環註冊事件
+        for (var i = 0; i < imgs.length; i++) {
+            imgs[i].onclick = function() {
+                // this.src就是我們點擊圖片的路徑
+                console.log(this.src);
+                // 把這個路徑this.src給body
+                document.body.style.backgroundImage = 'url(' + this.src + ')'
+
+            }
+        }
+    </script>
+</body>
+
+</html>
