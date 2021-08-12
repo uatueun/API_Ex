@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            position: absolute;
+            top: 2px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/angel.gif" alt="">
+    <script>
+        var pic = document.querySelector('img')
+        document.addEventListener('mousemove', function(e) {
+            // 1.mousemove只要滑鼠移動1px就會觸發事件
+            // console.log(1);
+            // 2.每次移動滑鼠都會獲得最新的鼠標座標 把這個x和y座標作為圖片的top和left 值就可以移動圖片
+            var x = e.pageX;
+            var y = e.pageY;
+            console.log('X座標是' + x, 'Y座標是' + y);
+            // 3.千望不要忘記給left跟top+px
+            pic.style.left = x - 50 + 'px';
+            pic.style.top = y - 40 + 'px';
+        })
+    </script>
+</body>
+
+</html>
