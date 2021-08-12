@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        table {
+            border-collapse: collapse;
+            cursor: pointer;
+        }
+        
+        thead tr th {
+            width: 100px;
+            background-color: chocolate;
+            color: #fff;
+            border: 2px solid brown;
+        }
+        
+        td {
+            text-align: center;
+            border: 2px solid brown;
+        }
+        
+        .th2 {
+            width: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        請輸入姓名: <input type="text" class="name"><br> 請輸入信箱: <input type="text" class="mail">
+    </div>
+    <button>新增</button>
+    <table>
+        <thead>
+            <tr>
+                <th class="th1">姓名</th>
+                <th class="th2">信箱</th>
+            </tr>
+        </thead>
+        <tbody id="tbd">
+            <tr>
+                <td>民民</td>
+                <td>54545@gmail.com</td>
+            </tr>
+        </tbody>
+    </table>
+    <script>
+        //獲得按鈕註冊點擊事件
+
+        var btn = document.querySelector('button')
+        var table = document.querySelector('table')
+
+        btn.onclick = function() {
+            var flag = true;
+            //獲得文本框
+            var name = document.querySelector('.name')
+            var mail = document.querySelector('.mail')
+            if (name.value == '' || mail.value == '') {
+                alert('您沒有輸入內容')
+                return;
+            }
+            var trObj = document.createElement('tr')
+            var tbd = document.getElementById('tbd')
+            table.appendChild(trObj)
+            var td1 = document.createElement('td')
+            td1.innerHTML = name.value
+            var td2 = document.createElement('td')
+            td2.innerHTML = mail.value
+
+            trObj.appendChild(td1)
+            trObj.appendChild(td2)
+
+
+        }
+    </script>
+
+</body>
+
+</html>
